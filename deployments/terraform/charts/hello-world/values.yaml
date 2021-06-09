@@ -6,7 +6,8 @@ replicaCount: 1
 
 image:
   #repository: docker.aigerimmaden96.com/hello-world-stage:d7ebcc0
-  repository: docker.aigerimmaden96.com/hello-world-stage:358db2f
+  #repository: docker.aigerimmaden96.com/hello-world-stage:358db2f
+  repository: ${deployment_image}
   pullPolicy: IfNotPresent
 
 imagePullSecrets: []
@@ -24,14 +25,14 @@ ingress:
     cert-manager.io/cluster-issuer: letsencrypt-prod
     # kubernetes.io/tls-acme: "true"
   hosts:
-    - host: dev.hello.aigerimmaden96.com
+    - host: ${deployment_endpoint}
       paths:
       - '/'
 
   tls:
   - secretName: chart-example-tls
     hosts:
-    - dev.hello.aigerimmaden96.com
+    - ${deployment_endpoint}
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious

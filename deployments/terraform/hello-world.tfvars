@@ -1,0 +1,5 @@
+google_project_id       = "fuchicorp-316022"
+google_bucket_name      = "aigerim-maden-bucket"
+deployment_environment  = "qa"
+deployment_name         = "hello-world"
+credentials             = "fuchicorp-service-account.json"
